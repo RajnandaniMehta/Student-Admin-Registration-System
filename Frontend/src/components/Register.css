@@ -1,0 +1,132 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Form Container */
+.auth {
+  background-image: url("C:/Users/rajna/Desktop/MinorProject/Frontend/Nit_uttarakhandPhoto.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh; /* Use min-height instead of height for better flexibility */
+  width: 100%; /* Full page width */
+  display: flex; /* Enables flexbox */
+  justify-content: center; /* Horizontally center the box */
+  align-items: flex-start; /* Align items to the top */
+  position: relative;
+  overflow-y: auto; /* Enables vertical scrolling */
+  padding: 20px 0; /* Adds space above and below */
+}
+
+/* Form Header */
+.auth .Heading {
+  font-size: 28px;
+  font-weight: bold;
+  color: #03763a; /* Color matching the gradient */
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #01562f;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Form Structure */
+.formm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Input and Label Styling */
+.formm div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.formm label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.formm input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.formm input:focus {
+  border-color: #02a04f;
+  outline: none;
+  box-shadow: 0 0 5px rgba(2, 125, 60, 0.5);
+}
+
+/* Button Styling */
+.formm button {
+  width: 100%;
+  padding: 10px 15px;
+  background-color: #07a044;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.formm button:hover {
+  background-color: #05992a;
+  transform: scale(1.05);
+}
+
+/* Scrollbar Styling */
+.auth::-webkit-scrollbar {
+  width: 8px;
+}
+
+.auth::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 10px;
+}
+
+.auth::-webkit-scrollbar-thumb:hover {
+  background: #017d2b;
+}
+
+/* Register Form Styling */
+.registerDiv {
+  background: rgba(255, 255, 255, 0.95); /* Semi-transparent white background */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); /* Adds depth */
+  width: 400px; /* Fixed width */
+  text-align: center;
+  margin-top: 20px; /* Adds space from the top */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .auth {
+    padding: 20px;
+  }
+
+  .registerDiv {
+    width: 90%; /* Makes the form fit smaller screens */
+  }
+
+  .auth .Heading {
+    font-size: 24px;
+  }
+
+  .formm button {
+    font-size: 14px;
+  }
+}

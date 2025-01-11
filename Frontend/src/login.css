@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensures consistent box model */
+}
+
+/* Full-screen background container */
+.authLogin {
+  background-image: url("C:/Users/rajna/Desktop/MinorProject/Frontend/Nit_uttarakhandPhoto.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%; /* Full page width */
+  display: flex; /* Enables flexbox */
+  justify-content: center; /* Horizontally center the box */
+  align-items: center; /* Vertically center the box */
+  position: relative; /* Ensures proper layering of elements */
+}
+
+/* Centered content box */
+.box {
+  background: rgba(255, 255, 255, 0.95); /* Semi-transparent white background */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); /* Adds depth */
+  width: 400px; /* Fixed width */
+  text-align: center;
+}
+
+/* Image within the box */
+section div img {
+  margin: 20px;
+  max-width: 100%; /* Ensures responsive image scaling */
+}

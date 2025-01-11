@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.heading{
+  margin: 5px;
+  padding: 8px;
+  font-size: 50px;
+  color: rgb(24, 3, 255)
+ 
+}
+div h1:hover{
+  color: rgb(76, 155, 230);
+}
+.content{
+  font-size: 32px;
+  color: rgb(24, 3, 255)
+}
+div h4:hover{
+  color: rgb(76, 155, 230);
+}
+.btn{
+  margin: 8px;
+  padding: 5px;
+  color: rgb(24, 3, 255);
+  font-weight: bold;
+  font-size: 20px;
+}
+.home {
+  display: flex;
+  flex-direction: column;
+  padding: 3px 200px;
+  height:550px;
+  justify-content: center;
+  align-items: center;
+  
+} 
+.home{
+  background-image: url("C:\Users\rajna\Desktop\MinorProject\Frontend\Nit_uttarakhandPhoto.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+    width: 80% 20%;
+    z-index: -1;
+}
+.h_primary {
+  font-size: 2rem;
+  font-family: "Agbalumo", system-ui;
+}
+div h4 button:hover{
+  position: relative;
+  cursor: pointer;
+  color:  rgb(76, 155, 230);
+  background-color: rgb(236, 243, 243);
+
+ }
