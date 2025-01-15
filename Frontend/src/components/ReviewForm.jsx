@@ -8,6 +8,7 @@ const ReviewForm = () => {
         name:"",
         id:"",
         rollno:"",
+        semester:"",
         fatherName:"",
         permanentAddress:"",
         parentMobNo:"",
@@ -32,6 +33,7 @@ const ReviewForm = () => {
                 name:response.data.name || "",
                 id:response.data.id || "",
                 rollno:response.data.rollno || "",
+                semester:response.data.semester || "",
                 fatherName:response.data.fatherName || "",
                 permanentAddress:response.data.permanentAddress || "",
                 parentMobNo:response.data.parentMobNo || "",
@@ -72,6 +74,10 @@ const ReviewForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // console.log('Student data:', student);
+        if (!student.subjects || student.subjects.length === 0 || student.subjects.some(subject => subject.trim() === '')) {
+            toast.error('Please choose subjects before submitting the form.');
+            return; // Prevent form submission
+        }
         axios.post(
           'http://localhost:4000/student/submitForm',
                 student
@@ -87,7 +93,7 @@ const ReviewForm = () => {
 
           })
           .catch(error => {
-            console.error('Error submitting form:', error.response?.data || error.message);
+            toast('Error submitting form:', error.response?.data || error.message);
           });
       };
   return (
@@ -120,6 +126,16 @@ const ReviewForm = () => {
                         type="text"
                         placeholder="Enter your Roll no"
                         value={student.rollno}
+                        onChange={handleChange}
+                        
+                    />
+                </div>
+                <div>
+                    <label>Semester</label>
+                    <input
+                        type="number"
+                        placeholder="Enter your Semester"
+                        value={student.semester}
                         onChange={handleChange}
                         
                     />

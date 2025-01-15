@@ -12,6 +12,11 @@ const studentSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    semester: {
+        type: Number,
+        // required: true,
+        default : 1
+    },
     password:{
         type:String,
         required:true

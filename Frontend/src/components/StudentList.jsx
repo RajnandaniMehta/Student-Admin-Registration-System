@@ -58,24 +58,3 @@ const StudentList = () => {
 }
 
 export default StudentList
-
-// {}
-// {loading ? (
-//   <p>Loading...</p>
-// ) : Object.keys(student).length > 0 ? (
-//   // Display student data if available
-//   <div>
-//     <h1>Welcome, {student.name || "Student"}</h1>
-//     <p><strong>Roll Number:</strong> {student.rollno}</p>
-//     <p><strong>Student Id:</strong> {student.id}</p>
-//     <p><strong>Father Name:</strong> {student.fatherName}</p>
-//     <p><strong>Permanent Address:</strong> {student.permanentAddress}</p>
-//     <p><strong>Parent MobNo:</strong> {student.parentMobNo}</p>
-//     <p><strong>Parent Email:</strong> {student.parentEmail}</p>
-//     <p><strong>Present Address:</strong> {student.presentAddress}</p>
-//     <p><strong>Student Number:</strong> {student.studentNo}</p>
-//     <p><strong>Student Email:</strong> {student.studentEmail}</p>
-//   </div>
-// ) : (
-//   <p>No student data available.</p> // If no student data exists
-// )}

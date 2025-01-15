@@ -47,7 +47,7 @@ const App = () => {
       <Route path="/HomeAdmin" element={<HomeAdmin />} />
       <Route path="/ReviewForm" element={<ReviewForm />} />
       <Route path="/student-list" element={<StudentList />} />
-      <Route path="/update-form-status" element={<UpdateFormStatus />} />
+      <Route path="/submission-list" element={<UpdateFormStatus />} />
     </Routes>
     <Toaster/>
   </Router>

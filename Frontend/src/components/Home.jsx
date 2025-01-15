@@ -38,7 +38,15 @@ const navigateTo=useNavigate();
     setSubjectLoading(true);
     try {
       console.log(semester);
+      const updateRes=await axios.post(
+        'http://localhost:4000/student/updateSemester',
+        { semester },
+        { withCredentials: true }
+      );
+      console.log(updateRes.data);
       const response = await axios.get(`http://localhost:4000/student/subjects?semester=${semester}`, { withCredentials: true });
+
+      
       if(response.data){
     //   setSubjects(response.data.subjectList);
     // console.log(response.data.subjectList);
@@ -53,6 +61,7 @@ const navigateTo=useNavigate();
       setSubjectLoading(false);
     }
   };
+  
   const handleCheckboxChange = (subject) => {
     if (selectedSubjects.includes(subject)) {
       // Remove subject if already selected

@@ -28,7 +28,7 @@ export const login=async(req,res,next) => {
             message:"Wrong password"
         }));
     }
-    // creating token to take student to their profile
+    // creating token to take Admin to their profile
     const token=await jwt.sign({id:admin._id},process.env.JWT_SECRET,{expiresIn:process.env.JWT_EXPIRES});
     res.status(200).cookie("token",token,{
         httpOnly:true,
@@ -82,25 +82,39 @@ export const floatSubject=async(req,res,next) => {
     });
 }
 
-//form-status
-export const updateFormStatus = async (req, res, next) => {
-    const { rollno,status} = req.body;
-    if(!rollno || !status){
-        return next(
-            res.status(400).json({
-                success:false,
-                message:"Please provide roll and status"
-            })
-        );
-    }
-    await Student.findOneAndUpdate( { rollno: rollno }, 
-        { formStatus: status },
-        { new: true });
-    res.json({ message: 'Form status updated' });
-  };
 
 //studentList
 export const getStudents = async (req, res) => {
     const students = await Student.find();
     res.json(students);
+  };
+
+//submissionList
+export const getSubmission = async (req, res) => {
+    const students = await Submission.find();
+    res.json(students);
+  };
+  
+  //form status
+  export const updateFormStatus = async (req, res, next) => {
+    const { rollno, status } = req.body;
+  
+    if (!rollno || !status) {
+      return res.status(400).json({ success: false, message: 'Roll number and status are required.' });
+    }
+  
+    try {
+      const student = await Student.findOne({ rollno });
+      if (!student) {
+        return res.status(404).json({ success: false, message: 'Student not found.' });
+      }
+  
+      student.formStatus = status;
+      await student.save();
+  
+      return res.status(200).json({ success: true, message: 'Form status updated successfully.' });
+    } catch (error) {
+      console.error('Error updating form status:', error);
+      return res.status(500).json({ success: false, message: 'Internal server error.' });
+    }
   };

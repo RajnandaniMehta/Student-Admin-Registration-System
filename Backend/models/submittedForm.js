@@ -12,6 +12,10 @@ const submissionSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    semester: {
+        type: Number
+        // required: true,
+    },
     fatherName:{ type:String},
     permanentAddress:{type:String},
     parentMobNo:{type:Number},

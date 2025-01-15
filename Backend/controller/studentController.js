@@ -142,6 +142,14 @@ export const getSubjects = async (req, res, next) => {
 //to submit form at admin
 export const submitForm = async (req, res) => {
   // console.log('Received student data:', req.body);
+  const {rollno, semester}=req.body;
+  const existingForm=await Submission.findOne({rollno,semester});
+  if(existingForm){
+    return res.status(400).json({
+        success: false,
+        message: 'You have already submitted an application for this semester.',
+      });
+  }
   try {
     const newSubmission = new Submission(req.body);
     await newSubmission.save();
@@ -155,4 +163,58 @@ export const submitForm = async (req, res) => {
   }
 };
 
-
+//update student semester
+export const updateSemester = async (req, res) => {
+    let { semester } = req.body;
+    
+    // Convert semester to a number
+    semester = Number(semester);
+    console.log('Request body (converted):', semester);
+  
+    // Validate semester input
+    if (!semester || typeof semester !== 'number' || semester <= 0) {
+      return res.status(400).json({
+        success: false,
+        message: 'Valid semester is required',
+      });
+    }
+  
+    // Ensure student ID exists in the request
+    if (!req.student || !req.student._id) {
+      return res.status(400).json({
+        success: false,
+        message: 'Student ID is missing in the request',
+      });
+    }
+  
+    try {
+      // Find student by ID
+      const student = await Student.findById(req.student._id);
+  
+      if (!student) {
+        return res.status(404).json({
+          success: false,
+          message: 'Student not found',
+        });
+      }
+  
+      // Update the semester
+      student.semester = semester;
+      await student.save();
+  
+      // Return updated student data (or just the semester if preferred)
+      res.status(200).json({
+        success: true,
+        message: 'Semester updated successfully',
+        semester: student.semester,
+      });
+    } catch (error) {
+      console.error('Error updating semester:', error);
+      res.status(500).json({
+        success: false,
+        message: 'Internal server error',
+      });
+    }
+  };
+  
+  

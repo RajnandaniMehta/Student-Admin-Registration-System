@@ -95,12 +95,12 @@ const HomeAdmin = () => {
                 <button type="submit">Float Subjects</button>
             </form>
             <div>
-                <h3>See the list of student registered </h3>
-                <button className='homebtn' onClick={() => navigateTo('/student-list')}>Student List</button>
+                <h3>See the list of submitted form </h3>
+                <button className='homebtn' onClick={() => navigateTo('/student-list')}>Registered Student</button>
             </div>
             <div>
-                <h3>To update form of a student </h3>
-                <button className='homebtn' onClick={() => navigateTo('/update-form-status')}>Update Form Status</button>
+            <h3>See the list of student registered </h3>
+                <button className='homebtn' onClick={() => navigateTo('/submission-list')}>Submitted Form</button>
             </div>
     </div>
   )
